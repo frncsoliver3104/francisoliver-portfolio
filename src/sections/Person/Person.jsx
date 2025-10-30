@@ -8,7 +8,11 @@ import facebookLight from '../../assets/facebook-light.svg'
 import facebookDark from '../../assets/facebook-dark.svg'
 import instagramLight from '../../assets/instagram-light.svg'
 import instagramDark from '../../assets/instagram-dark.svg'
+import linkedinLight from '../../assets/linkedin-light.svg'
+import linkedinDark from '../../assets/linkedin-dark.svg'
 import { useTheme } from '../../common/ThemeContext'
+import Navbar from '../../common/Navbar'
+import BackgroundAnimation from '../../common/BackgroundAnimation'
 
 function Person() {
     const { theme, toggleTheme } = useTheme();
@@ -18,9 +22,11 @@ function Person() {
     const githubIcon = theme === 'light' ? githubDark : githubLight
     const facebookIcon = theme === 'light' ? facebookDark : facebookLight
     const instagramIcon = theme === 'light' ? instagramDark : instagramLight
+    const linkedinIcon = theme === 'light' ? linkedinDark : linkedinLight
 
     return (
         <section id='person' className={styles.container}>
+            <BackgroundAnimation />
 
             <div className={styles.colorModeContainer}>
                 <img
@@ -56,13 +62,13 @@ function Person() {
                     <a href="https://www.instagram.com/frrrrancs.dgaf/" target='_blank'>
                         <img src={instagramIcon} alt="Instagram Icon." />
                     </a>
+                    <a href="https://www.linkedin.com/in/francis-oliver-villanueva-525803359/" target='_blank'>
+                        <img src={linkedinIcon} alt="LinkedIn Icon." />
+                    </a>
                 </span>
 
                 <p className={styles.description}>
-                    A 3rd Year Information Technology Student at Western Institute of Technology.
-                    Committed to continuous learning and
-                    motivated by the dream of developing professionally as a
-                    Front-end developer.
+                    Hi i'm a third-year Bachelor of Science in Information Technology student at the Western Institute of Technology with a focus on front-end development. I build accessible, responsive user interfaces and continuously learn modern web technologies to solve real-world problems. I'm driven to grow professionally and contribute to practical, user-centered projects.
                 </p>
 
             </div>

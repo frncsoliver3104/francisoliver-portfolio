@@ -83,7 +83,8 @@
 }
 
 .description {
-    max-width: 24ch;
+    max-width: 40ch;
+    margin: 0 auto; /* keep centered on small screens */
 }
 
 .info {
@@ -91,6 +92,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 20px;
+    align-items: center; /* centered on small screens */
 }
 
 @media (width >=800px) {
@@ -106,6 +108,17 @@
             border-radius: 50%;
             object-fit: cover;
             margin-left: 3em;
+        }
+        /* align text to the left and give the info column a max width so
+           the description lines up with headings and other content */
+        .info {
+            align-items: flex-start;
+            text-align: left;
+            max-width: 620px;
+        }
+        .description {
+            max-width: 54ch;
+            margin: 0; /* left-align within the info column */
         }
     }
 }

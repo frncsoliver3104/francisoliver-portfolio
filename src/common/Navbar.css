@@ -1,0 +1,138 @@
+:root{
+  --nav-height: 64px;
+  /* color tokens (defaults for light theme) */
+  --nav-bg: rgba(255,255,255,0.9);
+  --nav-accent: #0f172a;
+  --nav-muted: #64748b;
+}
+
+.navbar{
+  width:100%;
+  background: var(--nav-bg);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 1px 0 rgba(16,24,40,0.04);
+  /* make navbar fixed so it fully covers the top area */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index:1200;
+  transition: background-color 220ms ease, color 220ms ease, box-shadow 220ms ease;
+}
+
+.navbar-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+  height:var(--nav-height);
+}
+
+.brand{
+  font-weight:700;
+  color:var(--nav-accent);
+  text-decoration:none;
+}
+
+/* match Person section typography: brand uses Rubik like h1 */
+.brand{
+  font-family: 'Rubik', sans-serif;
+  text-transform: uppercase;
+}
+
+.nav-links{
+  display:flex;
+  gap:18px;
+}
+
+.nav-links a{
+  color:var(--nav-muted);
+  text-decoration:none;
+  font-weight:600;
+  font-family: 'Roboto Mono', monospace; /* match h2/h3/p styling */
+  text-transform: uppercase;
+  transition: color 180ms ease;
+}
+
+.nav-links a:hover{
+  color:var(--accent);
+}
+
+.nav-toggle{
+  display:none;
+  width:36px;
+  height:36px;
+  border:0;
+  background:transparent;
+  align-items:center;
+  justify-content:center;
+}
+
+.nav-toggle .bar{
+  display:block;
+  width:22px;
+  height:2px;
+  background:var(--nav-accent);
+  margin:3px 0;
+  transition:transform .2s ease, opacity .2s ease;
+}
+
+/* Responsive */
+@media (max-width: 700px){
+  .nav-links{ display:flex; flex-direction:column; position:absolute; right:16px; top:var(--nav-height); background:rgba(255,255,255,0.96); padding:8px 12px; border-radius:6px; box-shadow:0 8px 24px rgba(2,6,23,0.08); transform-origin:top right; display:none; }
+  .navbar.open .nav-links{ display:flex; }
+  .nav-toggle{ display:flex; }
+}
+
+/* font sizes removed to keep navbar the same size as before */
+
+/* reduce mobile click highlight */
+a{ -webkit-tap-highlight-color: transparent; }
+
+/* Compact variant used when showing a small navbar over a section */
+.navbar.compact{
+  /* make compact variant visually match the primary navbar used at the top
+     — full-width, fixed to top, same background and layout */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1100;
+  background: var(--nav-bg);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 1px 0 rgba(16,24,40,0.04);
+}
+
+.navbar.compact .navbar-inner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 16px;
+  height:var(--nav-height);
+}
+
+.navbar.compact .brand{ display:inline-block; }
+
+.navbar.compact .nav-links{ display:flex; gap:18px; }
+
+/* allow compact variant on all sizes — it will behave like the header */
+@media (max-width:700px){
+  .navbar.compact .nav-links{ display:none; }
+  .navbar.compact.open .nav-links{ display:flex; flex-direction:column; position:absolute; right:16px; top:var(--nav-height); background:rgba(255,255,255,0.96); padding:8px 12px; border-radius:6px; box-shadow:0 8px 24px rgba(2,6,23,0.08); }
+  .navbar.compact .nav-toggle{ display:flex; }
+}
+
+/* Theme overrides using the data-theme attribute set on body by ThemeContext */
+body[data-theme='dark'] {
+  --nav-bg: rgba(10,12,18,0.86);
+  --nav-accent: #fff;
+  --nav-muted: #94a3b8; /* slightly muted light text */
+}
+
+body[data-theme='light'] {
+  --nav-bg: rgba(255,255,255,0.92);
+  --nav-accent: #0f172a;
+  --nav-muted: #64748b;
+}

@@ -1,6 +1,6 @@
 function SkillList({src, p}) {
     return (
-        <span>
+        <span className="skill-item">
             <img src={src} alt="Checkmark Icon" />
             <p>{p}</p>
         </span>)

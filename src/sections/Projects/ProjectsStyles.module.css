@@ -4,22 +4,25 @@
     text-align: center;
 
     img {
-        max-width: 250px;
-        align-self: center;
-        background-color: var(--project-card-bg);
-        border-radius: 20px;
-    }
+    max-width: 250px;
+    align-self: center;
+    background-color: var(--project-card-bg);
+    border-radius: 20px;
+    transition: transform 0.3s var(--reveal-ease);
+    z-index: 2;
+    position: relative;
+}
 
-    a {
-        width: fit-content;
-        text-decoration: none;
-        color: #222;
-        transition: transform 200ms ease-in-out;
-    }
+a {
+    width: fit-content;
+    text-decoration: none;
+    color: var(--text-color, #222);
+    position: relative;
+}
 
-    a:hover {
-        transform: scale(1.05);
-    }
+a:hover img {
+    transform: scale(1.05);
+}
 }
 
 .projectsContainer {

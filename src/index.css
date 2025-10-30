@@ -1,0 +1,17 @@
+/* Global styles */
+html,body,#root{
+	height:100%;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+body{
+	margin:0;
+	/* reserve space for the fixed navbar so sections don't sit under it */
+	--nav-height: 64px;
+	padding-top: var(--nav-height);
+	font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	-webkit-font-smoothing:antialiased;
+}

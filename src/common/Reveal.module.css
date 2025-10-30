@@ -1,0 +1,19 @@
+:root{
+  --reveal-ease: cubic-bezier(.2,.9,.2,1);
+}
+
+.reveal{
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 560ms var(--reveal-ease), transform 560ms var(--reveal-ease);
+  will-change: opacity, transform;
+}
+
+.visible{
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal, .visible { transition: none; transform: none; opacity: 1; }
+}

@@ -5,10 +5,11 @@ import EventorLogo from '../../assets/eventor logo.png'
 import XhibitLogo from '../../assets/XHIBIT LOGO.png'
 import AwesomeTodos from '../../assets/awesometodos.png'
 
-
 function Projects() {
+
     return (
         <section id='projects' className={styles.container}>
+
             <h1 className='sectionTittle'>Projects</h1>
             <div className={styles.projectsContainer}>
                 < ProjectCard
